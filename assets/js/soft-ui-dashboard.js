@@ -120,114 +120,114 @@ if (document.querySelector('.fixed-plugin')) {
 
 }
 
-//Set Sidebar Color
-function sidebarColor(a) {
-  var parent = document.querySelector(".nav-link.active");
-  var color = a.getAttribute("data-color");
+// //Set Sidebar Color
+// function sidebarColor(a) {
+//   var parent = document.querySelector(".nav-link.active");
+//   var color = a.getAttribute("data-color");
 
-  if (parent.classList.contains('bg-gradient-primary')) {
-    parent.classList.remove('bg-gradient-primary');
-  }
-  if (parent.classList.contains('bg-gradient-dark')) {
-    parent.classList.remove('bg-gradient-dark');
-  }
-  if (parent.classList.contains('bg-gradient-info')) {
-    parent.classList.remove('bg-gradient-info');
-  }
-  if (parent.classList.contains('bg-gradient-success')) {
-    parent.classList.remove('bg-gradient-success');
-  }
-  if (parent.classList.contains('bg-gradient-warning')) {
-    parent.classList.remove('bg-gradient-warning');
-  }
-  if (parent.classList.contains('bg-gradient-danger')) {
-    parent.classList.remove('bg-gradient-danger');
-  }
-  parent.classList.add('bg-gradient-' + color);
-}
+//   if (parent.classList.contains('bg-gradient-primary')) {
+//     parent.classList.remove('bg-gradient-primary');
+//   }
+//   if (parent.classList.contains('bg-gradient-dark')) {
+//     parent.classList.remove('bg-gradient-dark');
+//   }
+//   if (parent.classList.contains('bg-gradient-info')) {
+//     parent.classList.remove('bg-gradient-info');
+//   }
+//   if (parent.classList.contains('bg-gradient-success')) {
+//     parent.classList.remove('bg-gradient-success');
+//   }
+//   if (parent.classList.contains('bg-gradient-warning')) {
+//     parent.classList.remove('bg-gradient-warning');
+//   }
+//   if (parent.classList.contains('bg-gradient-danger')) {
+//     parent.classList.remove('bg-gradient-danger');
+//   }
+//   parent.classList.add('bg-gradient-' + color);
+// }
 
-// Set Sidebar Type
-function sidebarType(a) {
-  var parent = a.parentElement.children;
-  var color = a.getAttribute("data-class");
-  var body = document.querySelector("body");
-  var bodyWhite = document.querySelector("body:not(.dark-version)");
-  var bodyDark = body.classList.contains('dark-version');
+// // Set Sidebar Type
+// function sidebarType(a) {
+//   var parent = a.parentElement.children;
+//   var color = a.getAttribute("data-class");
+//   var body = document.querySelector("body");
+//   var bodyWhite = document.querySelector("body:not(.dark-version)");
+//   var bodyDark = body.classList.contains('dark-version');
 
-  var colors = [];
+//   var colors = [];
 
-  for (var i = 0; i < parent.length; i++) {
-    parent[i].classList.remove('active');
-    colors.push(parent[i].getAttribute('data-class'));
-  }
+//   for (var i = 0; i < parent.length; i++) {
+//     parent[i].classList.remove('active');
+//     colors.push(parent[i].getAttribute('data-class'));
+//   }
 
-  if (!a.classList.contains('active')) {
-    a.classList.add('active');
-  } else {
-    a.classList.remove('active');
-  }
+//   if (!a.classList.contains('active')) {
+//     a.classList.add('active');
+//   } else {
+//     a.classList.remove('active');
+//   }
 
-  var sidebar = document.querySelector('.sidenav');
+//   var sidebar = document.querySelector('.sidenav');
 
-  for (var i = 0; i < colors.length; i++) {
-    sidebar.classList.remove(colors[i]);
-  }
+//   for (var i = 0; i < colors.length; i++) {
+//     sidebar.classList.remove(colors[i]);
+//   }
 
-  sidebar.classList.add(color);
+//   sidebar.classList.add(color);
 
 
-  // Remove text-white/text-dark classes
-  if (color == 'bg-transparent' || color == 'bg-white') {
-    var textWhites = document.querySelectorAll('.sidenav .text-white:not(.nav-link-text):not(.active)');
-    for (let i = 0; i < textWhites.length; i++) {
-      textWhites[i].classList.remove('text-white');
-      textWhites[i].classList.add('text-dark');
-    }
-  } else {
-    var textDarks = document.querySelectorAll('.sidenav .text-dark');
-    for (let i = 0; i < textDarks.length; i++) {
-      textDarks[i].classList.add('text-white');
-      textDarks[i].classList.remove('text-dark');
-    }
-  }
+//   // Remove text-white/text-dark classes
+//   if (color == 'bg-transparent' || color == 'bg-white') {
+//     var textWhites = document.querySelectorAll('.sidenav .text-white:not(.nav-link-text):not(.active)');
+//     for (let i = 0; i < textWhites.length; i++) {
+//       textWhites[i].classList.remove('text-white');
+//       textWhites[i].classList.add('text-dark');
+//     }
+//   } else {
+//     var textDarks = document.querySelectorAll('.sidenav .text-dark');
+//     for (let i = 0; i < textDarks.length; i++) {
+//       textDarks[i].classList.add('text-white');
+//       textDarks[i].classList.remove('text-dark');
+//     }
+//   }
 
-  if (color == 'bg-transparent' && bodyDark) {
-    var textDarks = document.querySelectorAll('.navbar-brand .text-dark');
-    for (let i = 0; i < textDarks.length; i++) {
-      textDarks[i].classList.add('text-white');
-      textDarks[i].classList.remove('text-dark');
-    }
-  }
+//   if (color == 'bg-transparent' && bodyDark) {
+//     var textDarks = document.querySelectorAll('.navbar-brand .text-dark');
+//     for (let i = 0; i < textDarks.length; i++) {
+//       textDarks[i].classList.add('text-white');
+//       textDarks[i].classList.remove('text-dark');
+//     }
+//   }
 
-  // Remove logo-white/logo-dark
+//   // Remove logo-white/logo-dark
 
-  if ((color == 'bg-transparent' || color == 'bg-white') && bodyWhite) {
-    var navbarBrand = document.querySelector('.navbar-brand-img');
-    var navbarBrandImg = navbarBrand.src;
+//   if ((color == 'bg-transparent' || color == 'bg-white') && bodyWhite) {
+//     var navbarBrand = document.querySelector('.navbar-brand-img');
+//     var navbarBrandImg = navbarBrand.src;
 
-    if (navbarBrandImg.includes('logo-ct.png')) {
-      var navbarBrandImgNew = navbarBrandImg.replace("logo-ct", "logo-ct-dark");
-      navbarBrand.src = navbarBrandImgNew;
-    }
-  } else {
-    var navbarBrand = document.querySelector('.navbar-brand-img');
-    var navbarBrandImg = navbarBrand.src;
-    if (navbarBrandImg.includes('logo-ct-dark.png')) {
-      var navbarBrandImgNew = navbarBrandImg.replace("logo-ct-dark", "logo-ct");
-      navbarBrand.src = navbarBrandImgNew;
-    }
-  }
+//     if (navbarBrandImg.includes('logo-ct.png')) {
+//       var navbarBrandImgNew = navbarBrandImg.replace("logo-ct", "logo-ct-dark");
+//       navbarBrand.src = navbarBrandImgNew;
+//     }
+//   } else {
+//     var navbarBrand = document.querySelector('.navbar-brand-img');
+//     var navbarBrandImg = navbarBrand.src;
+//     if (navbarBrandImg.includes('logo-ct-dark.png')) {
+//       var navbarBrandImgNew = navbarBrandImg.replace("logo-ct-dark", "logo-ct");
+//       navbarBrand.src = navbarBrandImgNew;
+//     }
+//   }
 
-  if (color == 'bg-white' && bodyDark) {
-    var navbarBrand = document.querySelector('.navbar-brand-img');
-    var navbarBrandImg = navbarBrand.src;
+//   if (color == 'bg-white' && bodyDark) {
+//     var navbarBrand = document.querySelector('.navbar-brand-img');
+//     var navbarBrandImg = navbarBrand.src;
 
-    if (navbarBrandImg.includes('logo-ct.png')) {
-      var navbarBrandImgNew = navbarBrandImg.replace("logo-ct", "logo-ct-dark");
-      navbarBrand.src = navbarBrandImgNew;
-    }
-  }
-}
+//     if (navbarBrandImg.includes('logo-ct.png')) {
+//       var navbarBrandImgNew = navbarBrandImg.replace("logo-ct", "logo-ct-dark");
+//       navbarBrand.src = navbarBrandImgNew;
+//     }
+//   }
+// }
 
 // Set Navbar Fixed
 function navbarFixed(el) {
